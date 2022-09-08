@@ -53,7 +53,7 @@
 
   (reflexive? eq? ; (run-test reflexive?)
     [(reflexive? '((a a) (b b) (c d) (b c) (c c) (e e) (c a) (d d))) #t 3] ; (run-test reflexive? 1)
-    [(not (reflexive? '((a a) (b b) (c d) (b c) (e e) (c a) (d d)))) #t 3] ; 
+    [(not (reflexive? '((a a) (b b) (c d) (b c) (e e) (c a) (d d)))) #t 3] ; (run-test reflexive? 2)
     [(not (reflexive? '((a a) (c d) (b c) (c c) (e e) (c a) (d d)))) #t 4] ; (run-test reflexive? 3)
     [(reflexive? '()) #t 1] ; (run-test reflexive? 4)
     [(not (reflexive? '((c c) (b b) (c d) (b c) (e e) (c a) (d d)))) #t 4] ; (run-test reflexive? 5)
