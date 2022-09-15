@@ -3,24 +3,9 @@
 (provide vector-append-list group-by-two group-by-n bt-leaf-sum bt-inorder-list bt-max bt-max-interior slist-map slist-reverse slist-paren-count slist-depth slist-symbols-at-depth path-to make-c...r)
 
 (define vector-append-list
-  (lambda (vec ls)
-    (let ([new-vector (make-vector (+ (vector-length vec) (length ls)))])
-      (copy-from-vector new-vector vec 0)
-      (copy-from-list new-vector ls  (vector-length vec) (+ (vector-length vec) (length ls)) ) new-vector)))
+  (lambda (a b)
+    (nyi)))
 
-(define copy-from-vector
-  (lambda (new vec len)
-    (cond [(= len  (sub1 (vector-length vec))) (vector-set! new len (vector-ref vec len))]
-          [(= 0 (vector-length vec)) ]
-          [else (begin (vector-set! new len (vector-ref vec len)) (copy-from-vector new vec (add1 len)))])))
-
-(define copy-from-list
-  (lambda (new lst len stop )
-    (cond [(= len (sub1 stop)) (vector-set! new len (car lst))]
-          [(null? lst) ]
-          [else ( begin (vector-set! new len (car lst)) (copy-from-list new (cdr lst) (add1 len) stop))])))
-
-               
 (define group-by-two
   (lambda (a)
     (nyi)))
