@@ -23,47 +23,83 @@
                
 (define group-by-two
   (lambda (a)
-    (nyi)))
+    (group a 2)))
+(define group
+  (lambda (lst stop)
+    (cond [(null? lst) '()]
+          [else (cons (groupnum lst stop) (group (rmvnum lst stop) stop))])))
+(define groupnum
+  (lambda (lst num)
+    (cond [(= num 0) '()]
+          [(null? lst) '()]
+          [else (cons (car lst) (groupnum (cdr lst) (- num 1)))])))
+(define rmvnum
+  (lambda (lst num)
+    (cond [(= num 0) lst]
+          [(null? lst) '()]
+          [else (rmvnum (cdr lst) (- num 1))])))
 
 (define group-by-n
   (lambda (a b)
-    (nyi)))
+    (group a b)))
 
+(define bt-right
+  (lambda (x)
+    (caddr x)))
+(define bt-left
+  (lambda (x)
+    (cadr x)))
 (define bt-leaf-sum
   (lambda (a)
-    (nyi)))
+    (cond [(number? a) a]
+          [else (+ (bt-leaf-sum (bt-left a)) (bt-leaf-sum (bt-right a)))])))
 
 (define bt-inorder-list
   (lambda (a)
-    (nyi)))
+    (cond [(number? a) '()]
+          [else (append (bt-inorder-list (bt-left a)) (cons (car a) (bt-inorder-list (bt-right a))))])))
 
 (define bt-max
   (lambda (a)
-    (nyi)))
+     (cond [(number? a) a]
+           [else ( max (bt-max (bt-left a)) (bt-max (bt-right a)))])))
 
 (define bt-max-interior
   (lambda (a)
     (nyi)))
 
+
 (define slist-map
   (lambda (a b)
-    (nyi)))
+    (cond [(null? b) b]
+          [(list? b) (cons (slist-map a (car b)) (slist-map a (cdr b)))]
+          [else (a b)])))
 
 (define slist-reverse
   (lambda (a)
-    (nyi)))
+   (reversehelp (reverse a))))
+(define reversehelp
+  (lambda (lst)
+   (cond  [(null? lst) '()]
+          [(list? (car lst)) (cons (reverse (car lst)) (reversehelp  (cdr lst)))]
+          [else (cons (car lst) (reversehelp (cdr lst)))])))
 
 (define slist-paren-count
   (lambda (a)
-    (nyi)))
+    (cond [(null? a) 2]
+          [(list? a) (+ (slist-paren-count (cdr a)) (slist-paren-count (car a)))]
+          [else 0])))
 
 (define slist-depth
   (lambda (a)
-    (nyi)))
+       (cond [(null? a) 1]
+          [(list? (car a))  (max (+ 1 (slist-depth (car a))) (slist-depth (cdr a)))]
+          [else (slist-depth (cdr a))])))
 
 (define slist-symbols-at-depth
   (lambda (a b)
-    (nyi)))
+    (cond [(null? a) '()]
+          [(list? (car a) )])))
 
 (define path-to
   (lambda (a b)

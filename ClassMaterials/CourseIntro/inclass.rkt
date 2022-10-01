@@ -7,13 +7,7 @@
 
 (define num-positive
   (lambda (lon)
-    (count lon 0)))
-
-(define count
-  (lambda (lon num)
-    (cond [ (null? lon) num]
-          [ (> (car lon) 0) (count (cdr lon) (+ num 1))]
-          [ else (count (cdr lon) num)])))
+    'nyi))
 
 ; you'll want a helper function
 ;(define num-positive-recur
@@ -29,9 +23,4 @@
 
 (define second-largest
   (lambda (lon)
-    ( largest (sort lon) (car lon))))
-
-(define largest
-  (lambda (lon best)
-    (cond [ (null? lon) best]
-          [ (
+    'nyi))
